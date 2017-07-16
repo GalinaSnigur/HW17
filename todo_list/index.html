@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo Application</title>
+     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+</head>
+<body>
+
+<div class="container" >
+    <form class="row" id="toDoForm">
+        <div class="col-md-5">
+            <input type="text" name="toDo" onkeyup="checkParams()" class="form-control"  id="task" />
+        </div>
+        <div class="col-md-3">
+            <input type="button" class="btn btn-success" value="Add" disabled id="addTask" />
+        </div>
+        <div  class="col-md-3">
+            <input type="button" class="btn btn-warning" value="Request" disabled id="ajax">
+        </div>
+    </form>
+
+    <div id="taskContainer"></div>
+
+
+
+<script>
+
+    function checkParams() {
+        var newTask = $('#task').val();
+
+        if(newTask.length !== 3 ) {
+            $('#addTask').removeAttr('disabled');
+            $('#ajax').removeAttr('disabled');
+        } else {
+            $('#addTask').attr('disabled', 'disabled');
+            $('#ajax').attr('disabled', 'disabled');
+        }
+    }
+
+</script>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/request.js"></script>
+<script type="text/javascript" src="assets/js/validate.js"></script>
+</body>
+</html>
